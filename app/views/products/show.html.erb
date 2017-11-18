@@ -7,9 +7,9 @@
     <h3>Featured: <%= @product.featured %></h3>
     <p><%= link_to "Edit", edit_product_path(@product) %></p>
     <p><%= link_to "Delete", product_path(@product),
-                         :data => {:confirm => "You sure?",
-                                   :method => "delete"} %></p>
-
+      :data => {:confirm => "You sure?",
+      :method => "delete"} %>
+    </p>
     <p><%= link_to "Return to Products List", products_path %></p>
   </div><br>
 
@@ -22,15 +22,15 @@
           <p>Author: <%= review.author %></p>
           <p>Review: <%= review.content_body %></p>
           <p>Rating: <%= review.rating %></p>
-          <p><%= link_to "Edit", edit_product_review_path(@product, review) %>
+          <p><%= link_to "Edit", edit_product_review_path(@product, review) %></p>
           <p><%= link_to "Delete", product_review_path(@product, review),
-                                   :data => {:confirm => "Are you sure?",
-                                                  :method => "delete"} %>
-                                                  <hr>
-
+            :data => {:confirm => "Are you sure?",
+            :method => "delete"} %>
+          </p>
+        <hr>
         <% end %>
-      <% else %>
-        <p>There are no reviews yet!</p>
-      <% end %>
-    </div>
+        <% else %>
+          <p>There are no reviews yet!</p>
+        <% end %>
+      </div>
   </div>
