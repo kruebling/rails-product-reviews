@@ -1,13 +1,16 @@
-<h1>Products</h1>
 
-<ul>
-  <% @products.each do |product| %>
-    <li><%= link_to product.name, product_path(product) %></li>
-    <li><%= product.country %></li>
-    <li>$<%= product.cost %>.00</li>
-    <li><%= product.featured %></li>
+
+<div class='card'>
+  <h2 class="card-header">Most Recently Added Products</h2>
+  <% @products.most_recent.each do |product| %>
+    <div class='card-body'>
+      <p class="card-text">Product: <%= link_to product.name, product_path(product) %></p>
+      <p class="card-text">Country of Origin: <%= product.country %></p>
+      <p class="card-text">Cost: $<%= product.cost %>.00</p>
+    </div>
   <% end %>
-</ul>
+</div>
+
 
 <hr>
 
