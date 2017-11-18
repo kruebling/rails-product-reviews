@@ -1,2 +1,7 @@
+.col-sm-4 {
+  height:400px;
+  overflow-y: scroll;
+}
+
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
