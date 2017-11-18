@@ -7,7 +7,7 @@ end
 Review.destroy_all
 
 250.times do |index|
-  Review.create!(author: Faker::GameOfThrones.character, content_body: Faker::Hipster.paragraph, rating: Faker::Number.between(1, 5), product_id: Faker::Number.between(1, 50))
+  Review.create!(author: Faker::GameOfThrones.character, content_body: Faker::Hipster.sentence(10), rating: Faker::Number.between(1, 5), product_id: Faker::Number.between(1, 50))
 end
 
 p "Created #{Product.count} products and #{Review.count} reviews."
