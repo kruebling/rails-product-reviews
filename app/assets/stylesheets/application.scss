@@ -7,5 +7,10 @@
   overflow-y: scroll;
 }
 
+.alert {
+  height: 100px;
+  width: 400px;
+}
+
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";

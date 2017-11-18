@@ -1,4 +1,4 @@
-<div class='container'>
+
   <div class='card card-body'>
     <h2>Product: <%= @product.name %></h2>
     <hr>
@@ -10,6 +10,7 @@
       :data => {:confirm => "You sure?",
       :method => "delete"} %>
     </p>
+    <p><%= link_to "Add a Review", new_product_review_path(@product) %></p>
     <p><%= link_to "Return to Products List", products_path %></p>
   </div><br>
 

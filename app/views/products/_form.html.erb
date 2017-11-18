@@ -1,13 +1,21 @@
 <%= render "layouts/errors", :object => @product %>
 
 <%= form_for @product do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :country %>
-  <%= f.text_field :country %>
-  <%= f.label :cost %>(2 digit)
-  <%= f.text_field :cost %>
-  <%= f.label :featured %>(boolean)
-  <%= f.text_field :featured %>
-  <%= f.button :submit, :class => 'btn btn-info' %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :country %>
+    <%= f.text_field :country, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cost %>(2 digit)
+    <%= f.text_field :cost, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :featured %>(boolean)
+    <%= f.text_field :featured, :class => "form-control" %>
+  </div>
+  <%= f.button :Submit, :class => 'btn btn-info' %>
 <% end %>
