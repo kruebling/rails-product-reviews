@@ -1,6 +1,5 @@
 class Product < ActiveRecord::Base
   has_many :reviews
-  validates_associated :reviews
 
   validates :name, :presence => true
 
@@ -28,7 +27,6 @@ class Product < ActiveRecord::Base
     .order("reviews_count DESC")
     .limit(10)
   )}
-
 
   def self.featured
     where(featured: true)

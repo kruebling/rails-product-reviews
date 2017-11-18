@@ -1,46 +1,67 @@
-<div class='row'>
-  <div class='col col-sm-4'>
-    <div class='card'>
-      <h2 class="card-header">Most Recently Added Products</h2>
-      <% @products.most_recent.each do |product| %>
-        <div class='card-body'>
-          <p class="card-text">Product: <%= link_to product.name, product_path(product) %></p>
-          <p class="card-text">Country of Origin: <%= product.country %></p>
-          <p class="card-text">Cost: $<%= product.cost %>.00</p>
-        </div>
-      <% end %>
-    </div>
-  </div>
 
-  <div class='col col-sm-4'>
-    <div class='card'>
-      <h2 class="card-header">Products From the U.S. of A.</h2>
-      <% @products.country_usa.each do |product| %>
-        <div class='card-body'>
-          <p class="card-text">Product: <%= link_to product.name, product_path(product) %></p>
-          <p class="card-text">Country of Origin: <%= product.country %></p>
-          <p class="card-text">Cost: $<%= product.cost %>.00</p>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class='col col-sm-4'>
-    <div class='card'>
-      <h2 class="card-header">Products With the Most Reviews</h2>
-      <% @products.most_reviews.each do |product| %>
-        <div class='card-body'>
-          <p class="card-text">Product: <%= link_to product.name, product_path(product) %></p>
-          <p class="card-text">Country of Origin: <%= product.country %></p>
-          <p class="card-text">Cost: $<%= product.cost %>.00</p>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-</div>
-
-
-<hr>
-
+<div class='container'>
 <%= link_to "New Product", new_product_path %>
+  <div class='row'>
+
+    <div class='col col-sm-3'>
+      <div class='card'>
+        <h2 class="card-header">Most Recently Added Products</h2>
+        <% @products.most_recent.each do |product| %>
+          <div class='card-body'>
+            <p class="card-text">Product: <%= link_to product.name, product_path(product) %></p>
+            <p class="card-text">Country of Origin: <%= product.country %></p>
+            <p class="card-text">Cost: $<%= product.cost %>.00</p>
+            <br>
+            <hr>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class='col col-sm-3'>
+      <div class='card'>
+        <h2 class="card-header">Products From the U.S. of A.</h2>
+        <% @products.country_usa.each do |product| %>
+          <div class='card-body'>
+            <p class="card-text">Product: <%= link_to product.name, product_path(product) %></p>
+            <p class="card-text">Country of Origin: <%= product.country %></p>
+            <p class="card-text">Cost: $<%= product.cost %>.00</p>
+            <br>
+            <hr>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class='col col-sm-3'>
+      <div class='card'>
+        <h2 class="card-header">Products With the Most Reviews</h2>
+        <% @products.most_reviews.each do |product| %>
+          <div class='card-body'>
+            <p class="card-text">Product: <%= link_to product.name, product_path(product) %></p>
+            <p class="card-text">Country of Origin: <%= product.country %></p>
+            <p class="card-text">Cost: $<%= product.cost %>.00</p>
+            <br>
+            <hr>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class='col col-sm-3'>
+      <div class='card'>
+        <h2 class="card-header">Currently Featured Products</h2>
+        <% @products.featured().each do |product| %>
+          <div class='card-body'>
+            <p class="card-text">Product: <%= link_to product.name, product_path(product) %></p>
+            <p class="card-text">Country of Origin: <%= product.country %></p>
+            <p class="card-text">Cost: $<%= product.cost %>.00</p>
+            <br>
+            <hr>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
