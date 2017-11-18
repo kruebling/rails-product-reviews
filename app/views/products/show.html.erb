@@ -1,31 +1,36 @@
-<h1><%= @product.name %></h1>
-<li><%= @product.country %></li>
-<li>$<%= @product.cost %>.00</li>
-<li><%= @product.featured %></li>
+<div class='container'>
+  <div class='card card-body'>
+    <h2>Product: <%= @product.name %></h2>
+    <hr>
+    <h3>Country: <%= @product.country %></h3>
+    <h3>Cost: $<%= @product.cost %>.00</h3>
+    <h3>Featured: <%= @product.featured %></h3>
+    <p><%= link_to "Edit", edit_product_path(@product) %></p>
+    <p><%= link_to "Delete", product_path(@product),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></p>
 
-<% if @product.reviews.any? %>
-  <h4>Here are the reviews for this product:</h4>
+    <p><%= link_to "Return to Products List", products_path %></p>
+  </div><br>
 
-  <ul>
-    <% @product.reviews.each do |review| %>
-      <li>
-        <%= review.author %> |
-        <%= review.content_body %> |
-        <%= review.rating %> |
-        <%= link_to "Edit", edit_product_review_path(@product, review) %> |
-        <%= link_to "Delete", product_review_path(@product, review),
-                                 :data => {:confirm => "Are you sure?",
-                                                :method => "delete"} %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>There are no reviews yet!</p>
-<% end %>
+  <div class='card'>
+    <% if @product.reviews.any? %>
+      <h2 class='card-header'>Here are the reviews for this product:</h2>
 
-<p><%= link_to "Edit", edit_product_path(@product) %></p>
-<p><%= link_to "Delete", product_path(@product),
-                     :data => {:confirm => "You sure?",
-                               :method => "delete"} %></p>
+      <div class='card-body'>
+        <% @product.reviews.each do |review| %>
+          <p>Author: <%= review.author %></p>
+          <p>Review: <%= review.content_body %></p>
+          <p>Rating: <%= review.rating %></p>
+          <p><%= link_to "Edit", edit_product_review_path(@product, review) %>
+          <p><%= link_to "Delete", product_review_path(@product, review),
+                                   :data => {:confirm => "Are you sure?",
+                                                  :method => "delete"} %>
+                                                  <hr>
 
-<p><%= link_to "Return to Products List", products_path %></p>
+        <% end %>
+      <% else %>
+        <p>There are no reviews yet!</p>
+      <% end %>
+    </div>
+  </div>
